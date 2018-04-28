@@ -4,13 +4,29 @@ Mock Server was created for proto-typing any front end application that needs to
 
 GETTING STARTED:
 
+-- You musthave Nodejs installed on your machine.
+
 Clone the repository and run
 
-  $npm install
+  $ npm install
 
 to load the express server. It will run on port 8090 and listens to will not block request from port 3000.
 
 If this behavior is not desired, feel free to change the ports to whatever suites your prototype best.
+
+-- Once the server is installed you can run it with:
+
+  $ node start
+  
+or, if you plan to alter the code on the server it may be best to also install nodemon with the following command:
+
+  $ npm install -g nodemon
+  
+ after which you can start your with:
+  
+  $ nodemon start
+  
+ and now, you will not need to restart the server as you make changes to its code.
 
 HOW IT WORKS:
 
