@@ -1,18 +1,18 @@
-Mock Server is an express server that has keeps an array of objects in memory as opposed to a database and, consequently, data does not persist when the server is restarted.
+Mock Server is an express server that keeps an array of objects in memory as opposed to a database. This means that the front end can refresh without changing the data, but data does not persist if the server is restarted.
 
-Mock Server was created for proto-typing any front end application that needs to hit an API but the API has not been created yet.
+Mock Server was created for proto-typing any front end application that needs  an API but the API has not been created yet.
 
 GETTING STARTED:
 
--- You musthave Nodejs installed on your machine.
+-- You must have Nodejs installed on your machine.
 
-Clone the repository and run
+Clone this repository and run
 
   $ npm install
 
-to load the express server. It will run on port 8090 and listens to will not block request from port 3000.
+to load the express server. It will run on port 8090 and listens to will not block request coming from port 3000.
 
-If this behavior is not desired, feel free to change the ports to whatever suites your prototype best.
+If this behavior is not desired, feel free to change the ports to whatever best suites your prototype needs.
 
 -- Once the server is installed you can run it with:
 
@@ -30,7 +30,7 @@ or, if you plan to alter the code on the server it may be best to also install n
 
 HOW IT WORKS:
 
-The shape of the data is up to the devoloper and the data can be populated through postman or the developers front end.
+The shape of the data is up to the devoloper and the data can be populated through postman or the developers front end application.
 
 The default data in the mock-database is:
 
@@ -75,7 +75,7 @@ Again, an id field will be added to your post object. Id's start at 0 and increm
 
 -- To delete a single object by id, make a post request to the following route:
 
-localhost:8090/delete/idlocalhost:8090/
+localhost:8090/delete/id - replacing "id" with the desired id.
 
 -To update or patch an object while keeping its id the same, make a post request to the following route:
 
