@@ -10,7 +10,7 @@ Clone this repository and run
 
   $ npm install
 
-to load the express server. It will run on port 8090 and listens to will not block request coming from port 3000.
+to load the express server. It will run on port 8090 and will not block request coming from port 3000.
 
 If this behavior is not desired, feel free to change the ports to whatever best suites your prototype needs.
 
