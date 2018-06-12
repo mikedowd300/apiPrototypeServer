@@ -26,17 +26,9 @@ app.use(bodyParser.json());
 app.use(cors({origin: "http://localhost:3000"}));
 
 app.post('/delete/:id', (req, res) => {
-
-  let length = data.length;
-
-  if( data.filter(datum => datum.id === parseInt(req.params.id)).length === 0) {
-    datum = {error: {message: "THAT ID DOES NOT EXIST"}}
-    res.json(datum);
-  } else {
-    data = data.filter(datum => datum.id !== parseInt(req.params.id));
-  }
-
-  res.json(data);
+  res.json(data.filter(datum => datum.id === parseInt(req.params.id)).length === 0
+    ? {error: {message: "THAT ID DOES NOT EXIST"}}
+    : data.filter(datum => datum.id !== parseInt(req.params.id)))
 });
 
 app.post('/deleteAll', (req, res) => {
@@ -47,15 +39,19 @@ app.post('/deleteAll', (req, res) => {
 
 app.post('/update/:id', (req, res) => {
   if( data.filter(datum => datum.id === parseInt(req.params.id)).length === 0) {
-    datum = {error: {message: "THAT ID DOES NOT EXIST"}}
-    res.json(datum);
+    res.json({error: {message: "THAT ID DOES NOT EXIST"}});
   } else {
-    data = Object.values(data).map(datum => {
-      if(datum.id === parseInt(req.params.id)) {
-        return ({...datum, ...req.body});
-      }
-      return datum;
-    });
+    // data = Object.values(data).map(datum => {
+    //   if(datum.id === parseInt(req.params.id)) {
+    //     return ({...datum, ...req.body});
+    //   }
+    //   return datum;
+    // });
+
+    data = Object.values(data).map(datum => datum.id === parseInt(req.params.id)
+      ? ({...datum, ...req.body})
+      : datum
+    );
   }
   res.send(data);
 });
