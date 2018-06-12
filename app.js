@@ -1,9 +1,12 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const app = express();
+
+app.use(bodyParser.json());
+app.use(cors({origin: "http://localhost:3000"}));
 
 let nextId = 3;
-
 let data = [
   {
     id: 1,
@@ -21,10 +24,6 @@ let data = [
   },
 ];
 
-const app = express();
-app.use(bodyParser.json());
-app.use(cors({origin: "http://localhost:3000"}));
-
 app.post('/delete/:id', (req, res) => {
   res.json(data.filter(datum => datum.id === parseInt(req.params.id)).length === 0
     ? {error: {message: "THAT ID DOES NOT EXIST"}}
@@ -40,28 +39,17 @@ app.post('/deleteAll', (req, res) => {
 app.post('/update/:id', (req, res) => {
   if( data.filter(datum => datum.id === parseInt(req.params.id)).length === 0) {
     res.json({error: {message: "THAT ID DOES NOT EXIST"}});
-  } else {
-    // data = Object.values(data).map(datum => {
-    //   if(datum.id === parseInt(req.params.id)) {
-    //     return ({...datum, ...req.body});
-    //   }
-    //   return datum;
-    // });
-
-    data = Object.values(data).map(datum => datum.id === parseInt(req.params.id)
-      ? ({...datum, ...req.body})
-      : datum
-    );
   }
-  res.send(data);
+  res.send(data = Object.values(data).map(datum => datum.id === parseInt(req.params.id)
+    ? ({...datum, ...req.body})
+    : datum
+  ));
 });
 
 app.get('/:id', (req, res) => {
-
-  const datum = data.filter(datum => datum.id === parseInt(req.params.id)).length === 0
+  res.json(data.filter(datum => datum.id === parseInt(req.params.id)).length === 0
     ? {error: {message: "THAT ID DOES NOT EXIST"}}
-    : data.filter(datum => datum.id === parseInt(req.params.id));
-  res.json(datum);
+    : data.filter(datum => datum.id === parseInt(req.params.id)));
 });
 
 app.get('/', (req, res) => {
