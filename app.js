@@ -6,17 +6,17 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors({origin: "http://localhost:3000"}));
 
-let nextId = 3;
+let nextId = 2;
 let data = [
   {
-    id: 1,
+    id: "0",
     name: 'Unites States of America',
     capital: 'Washington D.C.',
     languages: ['English'],
     flag: '',
   },
   {
-    id: 2,
+    id: "1",
     name: 'Peru',
     capital: 'Lima',
     languages: ['Spanish', 'Aymara', 'Quechua'],
@@ -25,9 +25,11 @@ let data = [
 ];
 
 app.post('/delete/:id', (req, res) => {
-  res.json(data.filter(datum => datum.id === parseInt(req.params.id)).length === 0
-    ? {error: {message: "THAT ID DOES NOT EXIST"}}
-    : data.filter(datum => datum.id !== parseInt(req.params.id)))
+  if(!data[req.params.id]) {
+    res.json({error: {message: "THAT ID DOES NOT EXIST"}});
+  }
+  data = data.filter(datum => datum.id !== req.params.id);
+  res.json(data);
 });
 
 app.post('/deleteAll', (req, res) => {
@@ -37,31 +39,23 @@ app.post('/deleteAll', (req, res) => {
 });
 
 app.post('/update/:id', (req, res) => {
-  if( data.filter(datum => datum.id === parseInt(req.params.id)).length === 0) {
+  if(!data[req.params.id]) {
     res.json({error: {message: "THAT ID DOES NOT EXIST"}});
   }
-  res.send(data = Object.values(data).map(datum => datum.id === parseInt(req.params.id)
-    ? ({...datum, ...req.body})
-    : datum
-  ));
-});
-
-app.get('/:id', (req, res) => {
-  res.json(data.filter(datum => datum.id === parseInt(req.params.id)).length === 0
-    ? {error: {message: "THAT ID DOES NOT EXIST"}}
-    : data.filter(datum => datum.id === parseInt(req.params.id)));
-});
-
-app.get('/', (req, res) => {
+  data[req.params.id] = {...data[req.params.id], ...req.body};
   res.json(data);
 });
+
+app.get('/:id', (req, res) => res.json( !data[req.params.id]
+  ? {error: {message: "THAT ID DOES NOT EXIST"}}
+  : data[req.params.id]
+));
+
+app.get('/', (req, res) => res.json(data));
 
 app.post('/', (req, res) => {
-  const newDatum = req.body
-  newDatum.id = nextId++;
-  data.push(newDatum);
-  res.json(data);
+  data.push({...req.body, id: (nextId++).toString()});
+  res.json(data)
 });
 
-app.listen(8090);
-console.log('listening on 8090...');
+app.listen(8090, () => console.log('listening on 8090...'));
