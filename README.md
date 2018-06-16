@@ -1,4 +1,4 @@
-Mock DB Server is an express server that keeps an array of objects in memory as opposed to a database. This means that a front end application can easily make real API calls and receive data shaped the way it desires without making an entire back end service first.
+Mock DB Server is an express server that keeps an array of objects in memory as opposed to a database. This means that any application, front-end or back-end, can easily experiment with real API calls and receive data shaped the way the developer desires without making an entire service first.
 
 **GETTING STARTED:**
 
@@ -36,7 +36,7 @@ and now, you will not need to restart the server as you make changes to its code
 
 **HOW IT WORKS:**
 
-The data, and its shape, is whatever the developer (aka: **YOU**) wants. The data can be populated via postman or your front end application.
+The data, and its shape, is whatever the developer (aka: **YOU**) wants. The data can be populated via postman or your own web application.
 
 The default data in the mock-database is:
 
