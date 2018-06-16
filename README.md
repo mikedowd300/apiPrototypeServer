@@ -32,6 +32,7 @@ The shape of the data is up to the devoloper and the data can be populated throu
 
 The default data in the mock-database is:
 
+```javascript
 [
   {
     id: 1,
@@ -48,6 +49,7 @@ The default data in the mock-database is:
     flag: '',
   },
 ]
+````
 
 -- The data may, of course, be modified or deleted all together.
 
