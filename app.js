@@ -13,14 +13,14 @@ let data = [
     name: 'Unites States of America',
     capital: 'Washington D.C.',
     languages: ['English'],
-    flag: '',
+    flag: 'http://www.all-flags-world.com/country-flag/USA/flag-usa-XL.jpg',
   },
   {
     id: "1",
     name: 'Peru',
     capital: 'Lima',
     languages: ['Spanish', 'Aymara', 'Quechua'],
-    flag: '',
+    flag: 'http://www.all-flags-world.com/country-flag/Peru/flag-peru-XL.jpg',
   },
 ];
 
