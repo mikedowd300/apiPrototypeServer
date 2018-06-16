@@ -36,7 +36,7 @@ and now, you will not need to restart the server as you make changes to its code
 
 **HOW IT WORKS:**
 
-The data, and its shape, is whatever the developer (aka: **YOU**) wants. It data can be populated through postman or the your front end application.
+The data, and its shape, is whatever the developer (aka: **YOU**) wants. The data can be populated via postman or your front end application.
 
 The default data in the mock-database is:
 
