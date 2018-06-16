@@ -2,11 +2,13 @@ Mock DB Server is an express server that keeps an array of objects in memory as 
 
 GETTING STARTED:
 
--- You must have Nodejs installed on your machine.
+-- You must have *Nodejs* installed on your machine.
 
 Clone this repository and run
 
-  $ npm install
+```console
+npm install
+```
 
 to load the express server. It will run on port 8090 and will not block request coming from port 3000.
 
