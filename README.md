@@ -1,6 +1,6 @@
 Mock DB Server is an express server that keeps an array of objects in memory as opposed to a database. This means that a front end application can easily make real API calls and receive data shaped the way it desires without making an entire back end service first.
 
-GETTING STARTED:
+**GETTING STARTED:**
 
 -- You must have *Nodejs* installed on your machine.
 
@@ -16,21 +16,27 @@ If this behavior is not desired, feel free to change the ports to whatever best 
 
 -- Once the server is installed you can run it with:
 
-  $ node start
+```console
+node start
+```
 
 or, if you plan to alter the code on the server, it may be best to also install nodemon with the following command:
 
-  $ npm install -g nodemon
+```console
+npm install -g nodemon
+````
 
- after which you can start the application with:
+after which you can start the application with:
 
-  $ nodemon start
+```console
+nodemon start
+```
 
- and now, you will not need to restart the server as you make changes to its code.
+and now, you will not need to restart the server as you make changes to its code.
 
-HOW IT WORKS:
+**HOW IT WORKS:**
 
-The shape of the data is up to the devoloper and the data can be populated through postman or the developers front end application.
+The data, and its shape, is whatever the developer (aka: **YOU**) wants. It data can be populated through postman or the your front end application.
 
 The default data in the mock-database is:
 
@@ -59,10 +65,10 @@ To delete the default data, make a post request to the following route:
 
 `localhost:8090/deleteAll/`
 
-This will reset the initial array of objects to [] and the reset the Ids to 0;
+This will reset the initial array of objects to `[]` and the reset the Ids to 0;
 
 
-Ids should not be included in any posts as Ids are added, as strings, to any object posted.
+*Ids should not be included in any posts as Ids are added, as strings, to any object posted.*
 
 
 -- To retrieve all data in the mock-database use a get request with the following route:
@@ -88,6 +94,6 @@ Again, an Id field will be added to your post object. Ids start at 0 and increme
 `localhost:8090/delete/id` - replacing "id" with the desired Id.
 
 
--To update or patch an object while keeping its Id the same, make a post request to the following route:
+-To update or patch an object while keeping its Id the same, make a post request  and supply the appropriate object to the following route:
 
 `localhost:8090/update/id` - replacing "id" with the desired Id.
