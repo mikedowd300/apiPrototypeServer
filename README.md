@@ -55,7 +55,7 @@ The default data in the mock-database is:
 
 To delete the default data, make a post request to the following route:
 
-localhost:8090/deleteAll/
+`localhost:8090/deleteAll/`
 
 This will reset the initial array of objects to [] and the reset the Ids to 0;
 
@@ -65,17 +65,17 @@ Ids should not be included in any posts as Ids are added, as strings, to any obj
 
 -- To retrieve all data in the mock-database use a get request with the following route:
 
-localhost:8090/
+`localhost:8090/`
 
 
 -- To retrieve a particular object by Id, make a get request with the following route:
 
-localhost:8090/id - replacing "id" with the desired Id.
+`localhost:8090/id` - replacing "id" with the desired Id.
 
 
 -- To post new data make a post request with to the following route:
 
-localhost:8090/
+`localhost:8090/`
 
 
 Again, an Id field will be added to your post object. Ids start at 0 and increment by 1 for each new post. Ids are not reused when an object is deleted.
@@ -83,9 +83,9 @@ Again, an Id field will be added to your post object. Ids start at 0 and increme
 
 -- To delete a single object by Id, make a post request to the following route:
 
-localhost:8090/delete/id - replacing "id" with the desired Id.
+`localhost:8090/delete/id` - replacing "id" with the desired Id.
 
 
 -To update or patch an object while keeping its Id the same, make a post request to the following route:
 
-localhost:8090/update/id - replacing "id" with the desired Id.
+`localhost:8090/update/id` - replacing "id" with the desired Id.
