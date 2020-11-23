@@ -17,7 +17,7 @@ If this behavior is not desired, feel free to change the ports to whatever best 
 -- Once the server is installed you can run it with:
 
 ```console
-node start
+node apiProtoypreServer
 ```
 
 or, if you plan to alter the code on the server, it may be best to also install nodemon with the following command:
